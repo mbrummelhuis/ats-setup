@@ -1,0 +1,12 @@
+network:
+	version: 2
+	renderer: NetworkManager
+	ethernets:
+		eth0:
+			dhcp4: no
+			addresses: [10.41.10.1/24] # Put the desired IP here. /24 denotes the correct subnet mask (the first 3 sets of numbers)
+			nameservers:
+				addresses: [10.41.10.1]
+			routes:
+				- to: 10.41.10.1
+					via: 10.41.10.1
