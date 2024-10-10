@@ -1,0 +1,13 @@
+[Unit]
+Description=MAVLink-Router
+After=network.target
+After=systemd-user-sessions.service
+After=network-online.target
+
+[Service]
+ExecStart=/home/orangepi/ats-setup/mavlink_router.sh
+Restart=on-failure
+User=orangepi
+
+[Install]
+WantedBy=multi-user.target
