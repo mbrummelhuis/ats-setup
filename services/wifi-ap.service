@@ -1,13 +1,13 @@
 [Unit]
-Description=Micro XRCE-DDS Agent
+Description=Start wifi ap
 After=network.target
 After=systemd-user-sessions.service
 After=network-online.target
 
 [Service]
-ExecStart=/home/orangepi/ats-setup/scripts/micro_xrce.sh
+ExecStart=/home/orangepi/ats-setup/scripts/wifi_ap.sh
 Restart=on-failure
-User=orangepi
+User=root
 
 [Install]
 WantedBy=multi-user.target

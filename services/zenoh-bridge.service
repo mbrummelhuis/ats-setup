@@ -1,0 +1,15 @@
+[Unit]
+Description=Zenoh DDS Bridge
+After=network.target
+After=systemd-user-sessions.service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStartPre=/bin/sleep 5
+ExecStart=/home/orangepi/tucan-systemd-startup/scripts/zenoh_bridge.sh
+Restart=on-failure
+User=orangepi
+
+[Install]
+WantedBy=multi-user.target

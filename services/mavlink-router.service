@@ -6,7 +6,7 @@ After=network-online.target
 
 [Service]
 Type=simple
-ExecStart=/home/orangepi/ats-setup/mavlink_router.sh
+ExecStart=/home/orangepi/ats-setup/scripts/mavlink_router.sh
 Restart=on-failure
 RestartSec=3
 User=orangepi
