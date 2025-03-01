@@ -12,6 +12,27 @@ SCRIPT_DIR="./scripts"
 SERVICE_DIR="./services"
 SYSTEMD_PATH="/etc/systemd/system"
 
+# 1. Install uXRCE-DDS agent -> TODO: put this in a separate installation script
+git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git /home/$USER
+cd Micro-XRCE-DDS-Agent
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig /usr/local/lib/
+cd ..
+
+# 2. Install MAVLink Router -> TODO: Put in a separate installation script
+git clone https://github.com/mavlink-router/mavlink-router.git /home/$USER
+cd mavlink-router
+git submodule update --init --recursive
+sudo apt install git meson ninja-build pkg-config gcc g++ systemd
+sudo pip3 install meson
+ninja -C build
+sudo ninja -C build install
+
+
 # 1. Make the necessary scripts executable
 echo "Making scripts executable..."
 for script in micro_xrce.sh zenoh_bridge.sh mavlink_router.sh wifi_ap.sh; do

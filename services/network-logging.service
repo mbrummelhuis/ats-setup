@@ -1,0 +1,10 @@
+[Unit]
+Description=Monitor network events
+After=network.target
+
+[Service]
+ExecStart=/home/orangepi/ats-setup/scripts/network_logging.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
