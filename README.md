@@ -20,3 +20,9 @@ NB: The Micro-XRCE-DDS agent, MAVLink router, and Zenoh bridge are deprecated an
 ### Network logging
 To check if a network adapter goes up or down, see the logs at 
 /var/log/network_events.log
+
+To enable log rotation (manage logs so they don't grow indefinitely) using logrotate, copy the network_events file in configs to /etc/logrotate.d
+`sudo cp configs/network_events /etc/logrotate.d/network_events`
+
+You can test by forcing a log rotation with 
+`sudo logrotate -f /etc/logrotate.d/network_events`

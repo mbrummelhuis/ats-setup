@@ -1,0 +1,8 @@
+/var/log/network_events.log {
+    daily
+    rotate 7
+    compress
+    missingok
+    notifempty
+    copytruncate
+}
